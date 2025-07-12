@@ -1,8 +1,22 @@
-# Problem Statement 1:
 # SkillSwap Platform
 
-A modern web application that connects people who want to exchange skills. Users can offer skills they have and find others who can teach them skills they want to learn.
+## 💡 Overview
+**SkillSwap** is a modern web application built to connect individuals who want to exchange skills. Whether you're a photographer looking to learn guitar or a coder who wants to master cooking, SkillSwap helps you find people with complementary skills and creates a platform for mutual learning.
 
+---
+
+## 👥 Team Synergy
+
+- **Udit Garg**  
+  Email: [udit_2401mc07@iitp.ac.in]
+- **Raghav Singla**
+  Email: [raghav_2401mc32@iitp.ac.in]
+- **Raghav Bansal**
+  Email: [raghav_2401me51@iitp.ac.in]
+- **Mayank Shrivastava**
+  Email: [mayank_2401mc16@iitp.ac.in]
+
+---
 ## Features
 
 ### 🔐 User Authentication
