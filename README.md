@@ -9,20 +9,12 @@
 
 - **Udit Garg**  
   Email: [udit_2401mc07@iitp.ac.in]
-- **Raghav Singla**
+- **Raghav Singla**  
   Email: [raghav_2401mc32@iitp.ac.in]
-- **Raghav Bansal**
+- **Raghav Bansal**  
   Email: [raghav_2401me51@iitp.ac.in]
-- **Mayank Shrivastava**
+- **Mayank Shrivastava**  
   Email: [mayank_2401mc16@iitp.ac.in]
-
----
-
-## 🌐 Live Website
-
-👉 [Visit SkillSwap Live](https://dctxk7gf-5500.inc1.devtunnels.ms/)
-
-> 📝 *Note: Best viewed on desktop.*
 
 ---
 ## 🎥 Video Demo
