@@ -17,6 +17,21 @@
   Email: [mayank_2401mc16@iitp.ac.in]
 
 ---
+
+## 🌐 Live Website
+
+👉 [Visit SkillSwap Live](https://dctxk7gf-5500.inc1.devtunnels.ms/)
+
+> 📝 *Note: Best viewed on desktop.*
+
+---
+## 🎥 Video Demo
+
+📺 [Watch Demo]()
+
+> A quick walkthrough of SkillSwap's core features including user registration, skill matching, chat, and scheduling.
+
+---
 ## Features
 
 ### 🔐 User Authentication
