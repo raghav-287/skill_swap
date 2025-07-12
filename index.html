@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillSwap - Connect & Exchange Skills</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-exchange-alt"></i>
+                <span>SkillSwap</span>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#" class="nav-link" id="home-link">Home</a>
+                <a href="#" class="nav-link" id="browse-link" style="display: none;">Browse Skills</a>
+                <a href="#" class="nav-link" id="profile-link" style="display: none;">Profile</a>
+                <a href="#" class="nav-link" id="friends-link" style="display: none;">Friends</a>
+                <a href="#" class="nav-link" id="swaps-link" style="display: none;">My Swaps</a>
+                <a href="#" class="nav-link" id="logout-link" style="display: none;">Logout</a>
+                <a href="#" class="nav-link" id="login-link">Login</a>
+                <a href="#" class="nav-link" id="signup-link">Sign Up</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Welcome Section -->
+        <section id="welcome-section" class="section">
+            <div class="container">
+                <div class="hero">
+                    <h1>Welcome to SkillSwap</h1>
+                    <p>Connect with people who have the skills you need and share your expertise with others.</p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary" id="get-started-btn">Get Started</button>
+                        <button class="btn btn-secondary" id="learn-more-btn">Learn More</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Authentication Forms -->
+        <section id="auth-section" class="section" style="display: none;">
+            <div class="container">
+                <!-- Login Form -->
+                <div id="login-form" class="auth-form">
+                    <h2>Login to SkillSwap</h2>
+                    <form id="login-form-element">
+                        <div class="form-group">
+                            <label for="login-username">Username</label>
+                            <input type="text" id="login-username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="login-password">Password</label>
+                            <input type="password" id="login-password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                    <p class="auth-switch">Don't have an account? <a href="#" id="switch-to-signup">Sign up</a></p>
+                </div>
+
+                <!-- Signup Form -->
+                <div id="signup-form" class="auth-form" style="display: none;">
+                    <h2>Create Your SkillSwap Account</h2>
+                    <form id="signup-form-element">
+                        <div class="form-group">
+                            <label for="signup-username">Username *</label>
+                            <input type="text" id="signup-username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signup-password">Password *</label>
+                            <input type="password" id="signup-password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signup-name">Full Name *</label>
+                            <input type="text" id="signup-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signup-email">Email *</label>
+                            <input type="email" id="signup-email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signup-location">Location (Optional)</label>
+                            <input type="text" id="signup-location">
+                        </div>
+                        <div class="form-group">
+                            <label for="signup-profile-pic">Profile Picture (Optional)</label>
+                            <input type="file" id="signup-profile-pic" accept="image/*">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Create Account</button>
+                    </form>
+                    <p class="auth-switch">Already have an account? <a href="#" id="switch-to-login">Login</a></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Profile Section -->
+        <section id="profile-section" class="section" style="display: none;">
+            <div class="container">
+                <div class="profile-header">
+                    <h2>My Profile</h2>
+                    <p>Manage your personal information and settings</p>
+                </div>
+
+                <div class="profile-content">
+                    <div class="profile-card">
+                        <div class="profile-avatar-section">
+                            <div class="profile-avatar" id="profile-avatar">
+                                <!-- Avatar will be populated here -->
+                            </div>
+                            <div class="profile-info">
+                                <h3 id="profile-name">User Name</h3>
+                                <p id="profile-username">@username</p>
+                                <p id="profile-location">Location</p>
+                                <p id="profile-email">email@example.com</p>
+                            </div>
+                        </div>
+                        <div class="profile-actions">
+                            <button class="btn btn-primary" id="edit-profile-btn">
+                                <i class="fas fa-edit"></i> Edit Profile
+                            </button>
+                            <div class="profile-toggle">
+                                <label class="switch">
+                                    <input type="checkbox" id="profile-privacy-toggle">
+                                    <span class="slider"></span>
+                                </label>
+                                <span>Public Profile</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="profile-stats">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-gift"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h4 id="skills-offered-count">0</h4>
+                                <p>Skills Offered</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h4 id="skills-wanted-count">0</h4>
+                                <p>Skills Wanted</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h4 id="friends-count">0</h4>
+                                <p>Friends</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h4 id="swaps-count">0</h4>
+                                <p>Active Swaps</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="profile-sections">
+                        <div class="profile-section-card">
+                            <div class="section-header">
+                                <h3><i class="fas fa-clock"></i> Availability</h3>
+                                <button class="btn btn-small" id="edit-availability-btn">
+                                    <i class="fas fa-edit"></i> Edit
+                                </button>
+                            </div>
+                            <div class="availability-display" id="availability-display">
+                                <!-- Availability will be populated here -->
+                            </div>
+                        </div>
+
+                        <div class="profile-section-card">
+                            <div class="section-header">
+                                <h3><i class="fas fa-gift"></i> Skills I Offer</h3>
+                                <button class="btn btn-small" id="add-skill-offered-btn">
+                                    <i class="fas fa-plus"></i> Add Skill
+                                </button>
+                            </div>
+                            <div class="skills-list" id="skills-offered-list">
+                                <!-- Skills will be populated here -->
+                            </div>
+                        </div>
+
+                        <div class="profile-section-card">
+                            <div class="section-header">
+                                <h3><i class="fas fa-search"></i> Skills I Want</h3>
+                                <button class="btn btn-small" id="add-skill-wanted-btn">
+                                    <i class="fas fa-plus"></i> Add Skill
+                                </button>
+                            </div>
+                            <div class="skills-list" id="skills-wanted-list">
+                                <!-- Skills will be populated here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Browse Skills Section -->
+        <section id="browse-section" class="section" style="display: none;">
+            <div class="container">
+                <div class="browse-header">
+                    <h2>Browse Skills</h2>
+                    <p>Find people who can teach you the skills you want to learn</p>
+                </div>
+                
+                <div class="search-filters">
+                    <div class="search-box">
+                        <input type="text" id="skill-search" placeholder="Search for skills (e.g., Photoshop, Excel, Cooking...)">
+                        <button class="btn btn-primary" id="search-skills-btn">
+                            <i class="fas fa-search"></i> Search
+                        </button>
+                    </div>
+                    <div class="filter-options">
+                        <select id="availability-filter">
+                            <option value="">Any Availability</option>
+                            <option value="weekends">Weekends</option>
+                            <option value="evenings">Evenings</option>
+                            <option value="weekdays">Weekdays</option>
+                            <option value="flexible">Flexible</option>
+                        </select>
+                        <select id="level-filter">
+                            <option value="">Any Level</option>
+                            <option value="beginner">Beginner</option>
+                            <option value="intermediate">Intermediate</option>
+                            <option value="advanced">Advanced</option>
+                            <option value="expert">Expert</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="search-results-container" id="browse-results">
+                    <!-- Search results will be populated here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Dashboard Section -->
+        <section id="dashboard-section" class="section" style="display: none;">
+            <div class="container">
+                <div class="dashboard-header">
+                    <h2>Welcome, <span id="user-name">User</span>!</h2>
+                    <div class="profile-controls">
+                        <div class="profile-toggle">
+                            <label class="switch">
+                                <input type="checkbox" id="profile-privacy-toggle">
+                                <span class="slider"></span>
+                            </label>
+                            <span>Public Profile</span>
+                        </div>
+                        <button class="btn btn-small" id="dashboard-edit-availability-btn">
+                            <i class="fas fa-clock"></i> Edit Availability
+                        </button>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <!-- Skills Offered -->
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-gift"></i> Skills I Offer</h3>
+                            <button class="btn btn-small" id="dashboard-add-skill-offered-btn">Add Skill</button>
+                        </div>
+                        <div class="skills-list" id="dashboard-skills-offered-list">
+                            <!-- Skills will be populated here -->
+                        </div>
+                    </div>
+
+                    <!-- Skills Wanted -->
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-search"></i> Skills I Want</h3>
+                            <button class="btn btn-small" id="dashboard-add-skill-wanted-btn">Add Skill</button>
+                        </div>
+                        <div class="skills-list" id="dashboard-skills-wanted-list">
+                            <!-- Skills will be populated here -->
+                        </div>
+                    </div>
+
+                    <!-- Friends -->
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-users"></i> My Friends</h3>
+                            <button class="btn btn-small" id="find-friends-btn">Find Friends</button>
+                        </div>
+                        <div class="friends-list" id="friends-list">
+                            <!-- Friends will be populated here -->
+                        </div>
+                    </div>
+
+                    <!-- Skill Matches -->
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-handshake"></i> Skill Matches</h3>
+                        </div>
+                        <div class="matches-list" id="matches-list">
+                            <!-- Matches will be populated here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- My Swaps Section -->
+        <section id="swaps-section" class="section" style="display: none;">
+            <div class="container">
+                <div class="swaps-header">
+                    <h2>My Swap Requests</h2>
+                    <p>Manage your skill exchange requests</p>
+                </div>
+
+                <div class="swaps-tabs">
+                    <button class="tab-btn active" data-tab="pending">Pending Requests</button>
+                    <button class="tab-btn" data-tab="accepted">Accepted Swaps</button>
+                    <button class="tab-btn" data-tab="sent">Sent Requests</button>
+                </div>
+
+                <div class="swaps-content">
+                    <!-- Pending Requests -->
+                    <div id="pending-tab" class="tab-content active">
+                        <div class="swaps-list" id="pending-swaps-list">
+                            <!-- Pending swaps will be populated here -->
+                        </div>
+                    </div>
+
+                    <!-- Accepted Swaps -->
+                    <div id="accepted-tab" class="tab-content">
+                        <div class="swaps-list" id="accepted-swaps-list">
+                            <!-- Accepted swaps will be populated here -->
+                        </div>
+                    </div>
+
+                    <!-- Sent Requests -->
+                    <div id="sent-tab" class="tab-content">
+                        <div class="swaps-list" id="sent-swaps-list">
+                            <!-- Sent requests will be populated here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Edit Profile Modal -->
+        <div id="edit-profile-modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Edit Profile</h3>
+                    <span class="close" id="close-edit-profile-modal">&times;</span>
+                </div>
+                <form id="edit-profile-form">
+                    <div class="form-group">
+                        <label for="edit-name">Full Name *</label>
+                        <input type="text" id="edit-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-email">Email *</label>
+                        <input type="email" id="edit-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-location">Location</label>
+                        <input type="text" id="edit-location" placeholder="City, Country">
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-profile-pic">Profile Picture</label>
+                        <input type="file" id="edit-profile-pic" accept="image/*">
+                        <small>Leave empty to keep current picture</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-password">New Password (Optional)</label>
+                        <input type="password" id="edit-password" placeholder="Leave empty to keep current password">
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-confirm-password">Confirm New Password</label>
+                        <input type="password" id="edit-confirm-password" placeholder="Confirm new password">
+                    </div>
+                    <div class="modal-buttons">
+                        <button type="button" class="btn btn-secondary" id="cancel-edit-profile">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Add Skill Modal -->
+        <div id="add-skill-modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="modal-title">Add Skill</h3>
+                    <span class="close" id="close-modal">&times;</span>
+                </div>
+                <form id="add-skill-form">
+                    <div class="form-group">
+                        <label for="skill-name">Skill Name *</label>
+                        <input type="text" id="skill-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="skill-description">Description</label>
+                        <textarea id="skill-description" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="skill-level">Skill Level</label>
+                        <select id="skill-level">
+                            <option value="beginner">Beginner</option>
+                            <option value="intermediate">Intermediate</option>
+                            <option value="advanced">Advanced</option>
+                            <option value="expert">Expert</option>
+                        </select>
+                    </div>
+                    <div class="modal-buttons">
+                        <button type="button" class="btn btn-secondary" id="cancel-skill">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Add Skill</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Edit Availability Modal -->
+        <div id="availability-modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Edit Availability</h3>
+                    <span class="close" id="close-availability-modal">&times;</span>
+                </div>
+                <form id="availability-form">
+                    <div class="form-group">
+                        <label>When are you available for skill exchanges?</label>
+                        <div class="availability-options">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="avail-weekends" value="weekends">
+                                <span class="checkmark"></span>
+                                Weekends
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="avail-evenings" value="evenings">
+                                <span class="checkmark"></span>
+                                Evenings (6 PM - 10 PM)
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="avail-weekdays" value="weekdays">
+                                <span class="checkmark"></span>
+                                Weekdays (9 AM - 5 PM)
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="avail-flexible" value="flexible">
+                                <span class="checkmark"></span>
+                                Flexible Schedule
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="availability-notes">Additional Notes (Optional)</label>
+                        <textarea id="availability-notes" rows="3" placeholder="Any specific preferences or constraints..."></textarea>
+                    </div>
+                    <div class="modal-buttons">
+                        <button type="button" class="btn btn-secondary" id="cancel-availability">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Save Availability</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Find Friends Modal -->
+        <div id="find-friends-modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Find Friends</h3>
+                    <span class="close" id="close-friends-modal">&times;</span>
+                </div>
+                <div class="search-section">
+                    <input type="text" id="friend-search" placeholder="Search by username or name...">
+                    <button class="btn btn-primary" id="search-friends-btn">Search</button>
+                </div>
+                <div class="search-results" id="search-results">
+                    <!-- Search results will be populated here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Swap Request Modal -->
+        <div id="swap-request-modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Request Skill Swap</h3>
+                    <span class="close" id="close-swap-modal">&times;</span>
+                </div>
+                <form id="swap-request-form">
+                    <div class="swap-details">
+                        <div class="swap-info">
+                            <h4 id="swap-skill-name">Skill Name</h4>
+                            <p id="swap-user-name">with User Name</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="swap-message">Message to User</label>
+                        <textarea id="swap-message" rows="4" placeholder="Introduce yourself and explain what you'd like to learn..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="swap-skill-offer">What skill will you offer in exchange?</label>
+                        <select id="swap-skill-offer" required>
+                            <option value="">Select a skill you can offer</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="swap-preferred-time">Preferred Time</label>
+                        <select id="swap-preferred-time">
+                            <option value="">Any time</option>
+                            <option value="weekends">Weekends</option>
+                            <option value="evenings">Evenings</option>
+                            <option value="weekdays">Weekdays</option>
+                        </select>
+                    </div>
+                    <div class="modal-buttons">
+                        <button type="button" class="btn btn-secondary" id="cancel-swap">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Send Request</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 SkillSwap. Connect, Learn, Grow.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
