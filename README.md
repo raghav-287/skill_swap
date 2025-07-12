@@ -19,7 +19,7 @@
 ---
 ## 🎥 Video Demo
 
-📺 [Watch Demo]()
+📺 [Watch Demo](https://youtu.be/NizpvLH0DjY)
 
 > A quick walkthrough of SkillSwap's core features including user registration, skill matching, chat, and scheduling.
 
